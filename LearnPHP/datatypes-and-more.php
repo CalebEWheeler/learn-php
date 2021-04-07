@@ -8,7 +8,8 @@
 </head>
 <body>
   <?php 
-  
+  //PHP Variables and data types
+
   //String
   $name = 'Caleb';
   //String with snake case naming convention

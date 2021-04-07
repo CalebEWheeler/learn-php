@@ -24,6 +24,7 @@
   if ( $number1 == $string1 ) { echo "true ";}
   if ( $number1 === $string1 ) {echo "true ";}
   else { echo "false";}
+  //Overall logic is the same as JavaScript with the exception of '<>' operator.
   ?>
 </body>
 </html>

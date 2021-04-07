@@ -30,6 +30,9 @@ echo "<br>";
 
 //Or I can use print_r(ARRAY) to display the array and the values of each indice
 print_r($numberList4);
+echo "<br>";
+
+
 ?>
 
 </body>

@@ -7,7 +7,18 @@
   <title>Welcome to PHP</title>
 </head>
 <body>
-<h1>This is an h1 tag in HTML</h1>
+  <h5>Sample 1: show text with HTML and PHP</h6>
+  <h1>This is an h1 tag in HTML</h1>
   <?php echo "this line is made with php echo" ?>
+
+  <br>
+  <hr>
+  <br>
+
+  <h5>Sample 2: Dynamic data/creating and using a variable</h6>
+  <?php $title = "Caleb Wheeler's Site"; ?>
+  <h1><?php echo $title?></h1>
+
+
 </body>
 </html>

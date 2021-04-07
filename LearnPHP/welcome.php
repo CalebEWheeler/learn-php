@@ -15,7 +15,7 @@
   <hr>
   <br>
 
-  <h5>Sample 2: Dynamic data/creating and using a variable</h6>
+  <h5>Sample 2: Dynamic data/creating and using a PHP variable in an HTML element</h6>
   <?php $title = "Caleb Wheeler's Site"; ?>
   <h1><?php echo $title?></h1>
 

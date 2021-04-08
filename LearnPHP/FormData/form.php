@@ -1,12 +1,56 @@
 <?php 
 //A form will return information in an associative array
   if(isset($_POST['submit'])) {
-    echo "Submit has been clicked!";
+    //simple message to register the DOM event
+    // echo "Submit has been clicked!";
+
+    $minimum = 5;
+    $maximum = 20;
+
+    //store the values entered into semantic variables username and password
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    echo $username;
-    echo $password;
+      //Commented out method to check if the username is <> the minimum and maximum values
+      // if(strlen($username) < $minimum) {
+      //   echo "Username must be longer than five characters!";
+      // }
+      // if(strlen($username) > $maximum) {
+      //   echo "Username cannot be longer than 10 characters!";
+      // }
+      
+      //Utilize a more efficient switch statement
+      if(strlen($username) != 0 && strlen($password) != 0) {
+        switch($username) {
+          case (strlen($username) < $minimum):
+            echo "Username must be longer than 5 characters!";
+            break;
+          case (strlen($username) > $maximum):
+            echo "Username cannot be longer than 20 characters!";
+            break;
+          default:
+            break;
+        }
+
+        switch($password) {
+          case (strlen($password) < $minimum):
+            echo "Password must be longer than 5 characters!";
+            break;
+          case (strlen($password) > $maximum):
+            echo "Password cannot be longer than 20 characters!";
+            break;
+          default:
+            // echo "Successfully logged in!";
+            break;
+        }
+      } 
+      else {
+        echo "you must enter a valid username and password";  
+      } 
+      
+
+      
+      
   }
 ?>
 

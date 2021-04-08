@@ -10,14 +10,16 @@
   <?php 
     $list = [10,1,2,3,4,5,6];
 
+    //max() will return the largest value in the array
     echo max($list);
     echo "<br>";
+    //min() will return the lowest value in the array
     echo min($list);
     echo "<br>";
+    //sort will organize the values in the array from lowest to highest
     sort($list);
+    //print_r will return the array as its defined in PHP as an assorted array
     print_r($list);
-    echo "<br>";
-    
     echo "<br>";
   ?>
   <a href="https://www.php.net/manual/en/ref.array.php">https://www.php.net/manual/en/ref.array.php</a>

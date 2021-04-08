@@ -11,7 +11,7 @@
     // 'function' is a reserved word in PHP, naming convention is snake case
     function init($number1, $number2) {
       user_greeting();
-      addition($number1, $number2);
+      echo "The value of ".$number1." + ".$number2." is ".addition($number1, $number2);
     }
 
     function user_greeting() {
@@ -19,10 +19,20 @@
     }
 
     function addition($number1, $number2) { 
-      echo "The value of ".$number1." + ".$number2." is ".($number1 + $number2);
+      return $number1 + $number2;
     }
 
     init(4, 5);
+
+    $number3 = 7;
+    $number4 = 8;
+    $result = addition($number3, $number4);
+
+    echo "<br>The value of ".$number3." + ".$number4." is ".$result;
+
+    $result = addition(100, $result);
+    echo "<br>The new value of result + 100 is ".$result;
+
   ?>
 </body>
 </html>

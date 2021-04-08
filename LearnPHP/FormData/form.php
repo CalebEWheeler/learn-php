@@ -2,8 +2,11 @@
 //A form will return information in an associative array
   if(isset($_POST['submit'])) {
     echo "Submit has been clicked!";
-    echo $_POST['username'];
-    echo $_POST['password'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    echo $username;
+    echo $password;
   }
 ?>
 

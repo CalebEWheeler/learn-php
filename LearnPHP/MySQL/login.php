@@ -3,11 +3,25 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    //mysqli_connect is PHP's method to connect to the MySQL database in the stacks
+    //mysqli_connect will take in four parameters('SERVER', 'USERNAME', 'PASSWORD', 'DATABASE_NAME');
     $connection = mysqli_connect('localhost', 'root', 'root', 'learnphp_loginapp');
 
+    //if will check if the connection is true and display a message in the browser if the connection is established.
     if($connection) { echo "We are connected"; } 
     else { die("Database connection failed."); }
 
+    //create a query variable that has a SQL statement as a value that will insert a username and password into the users table in the learnPHP_loginapp database.
+    $query = "INSERT INTO users(username, password)";
+    //ln 17 will append to the $query variable to designate the variables $username and $password to be set as the values for username and password in the table users.
+    $query .= "VALUES ('$username', '$password')";
+
+    //define a $result variable that will assing the value to be PHP's method to make a query to the MySQL database. In order to define which database and what to query the method has to take in two parameters, the $connection to the database and a $query to do something to the database.
+    $result = mysqli_query($connection, $query);
+
+    //if not true I want everything to stop with the die() method.
+      if(!$result) { die('Query FAILED'.mysqli_error()); }
+    
     // if($username && $password) {
     //   echo $username;
     //   echo "<br>";

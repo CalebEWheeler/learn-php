@@ -3,14 +3,17 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $connection = mysqli_connect('localhost', 'caleb')
+    $connection = mysqli_connect('localhost', 'root', 'root', 'learnphp_loginapp');
 
-    if($username && $password) {
-      echo $username;
-      echo "<br>";
-      echo $password;
-    }
-    else { echo "You must enter a username and password!"; }
+    if($connection) { echo "We are connected"; } 
+    else { die("Database connection failed."); }
+
+    // if($username && $password) {
+    //   echo $username;
+    //   echo "<br>";
+    //   echo $password;
+    // }
+    // else { echo "You must enter a username and password!"; }
   }
 ?>
 

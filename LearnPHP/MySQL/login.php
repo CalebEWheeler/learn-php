@@ -1,6 +1,11 @@
 <?php 
   if(isset($_POST['submit'])) {
-    echo "DOM event registered!";
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    echo $username;
+    echo "<br>";
+    echo $password;
   }
 ?>
 
@@ -25,7 +30,7 @@
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="text" name="password" class="form-control">
+            <input type="password" name="password" class="form-control">
           </div>
           <div class="form-group">
             <input type="submit" class="btn btn-success" name="submit" value="submit">

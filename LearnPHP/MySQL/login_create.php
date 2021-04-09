@@ -11,13 +11,17 @@
     if($connection) { echo "We are connected"; } 
     else { die("Database connection failed."); }
 
-    //if a username && password are entered into the input fields the values will be displayed in the browser.
-    if($username && $password) {
-      echo $username;
-      echo "<br>";
-      echo $password;
-    }
-    else { echo "You must enter a username and password!"; }
+    //create a query variable that has a SQL statement as a value that will insert a username and password into the users table in the learnPHP_loginapp database.
+    $query = "INSERT INTO users(username, password)";
+    //ln 17 will append to the $query variable to designate the variables $username and $password to be set as the values for username and password in the table users.
+    $query .= "VALUES ('$username', '$password')";
+
+    //define a $result variable that will assing the value to be PHP's method to make a query to the MySQL database. In order to define which database and what to query the method has to take in two parameters, the $connection to the database and a $query to do something to the database.
+    $result = mysqli_query($connection, $query);
+
+    //if not true I want everything to stop with the die() method.
+      if(!$result) { die('Query FAILED'.mysqli_error()); }
+    
   }
 ?>
 

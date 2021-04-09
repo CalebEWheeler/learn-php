@@ -1,3 +1,9 @@
+<?php 
+  if(isset($_POST['submit'])) {
+    echo "DOM event registered!";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +15,7 @@
   <title>Document</title>
 </head>
 <body>
-  <?php ?>
+  <!-- Basic HTML form with Bootstrap styling -->
   <div class="container">
       <div class="col-xs-6">
         <form action="login.php" method="POST">

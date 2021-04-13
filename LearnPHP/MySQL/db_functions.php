@@ -9,6 +9,13 @@
       $username = mysqli_real_escape_string($connection, $username);
       $password = mysqli_real_escape_string($connection, $password);
 
+      //hash password method; First determine the hash format, then determine the length(has to be at least 22 characters long. can be anything!), finally concatenate the two together.
+      $hashFormat = "$2y$10$";
+      $salt = "iusesomecrazystrings22";
+      $hashF_and_salt = $hashFormat . $salt;
+      //redefine password to utilize crypt() method that takes in two variables, your password and then your hash and salt.
+      $password = crypt($password, $hashF_and_salt);
+
       $query = "INSERT INTO users(username,password) ";
       $query .= "VALUES ('$username', '$password')";
     
@@ -54,7 +61,13 @@
       //use mysqli_real_escape_string to sanitize our values to be passed to the database to prevent sql injection
       $username = mysqli_real_escape_string($connection, $username);
       $password = mysqli_real_escape_string($connection, $password);
-      
+      //hash password method; First determine the hash format, then determine the length(has to be at least 22 characters long. can be anything!), finally concatenate the two together.
+      $hashFormat = "$2y$10$";
+      $salt = "iusesomecrazystrings22";
+      $hashF_and_salt = $hashFormat . $salt;
+      //redefine password to utilize crypt() method that takes in two variables, your password and then your hash and salt.
+      $password = crypt($password, $hashF_and_salt);
+
       $query = "UPDATE users SET ";
       $query .= "username = '$username', ";
       $query .= "password = '$password' ";      

@@ -1,18 +1,20 @@
-<?php 
+<?php include "db.php";
   if(isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    //Original connection method lines 8-14, commented out in lieu of including "db.php" to import the connection method and showing refactoring process.
+
     //mysqli_connect is PHP's method to connect to the MySQL database in the stacks
     //mysqli_connect will take in four parameters('SERVER', 'USERNAME', 'PASSWORD', 'DATABASE_NAME');
-    $connection = mysqli_connect('localhost', 'root', 'root', 'learnphp_loginapp');
+    // $connection = mysqli_connect('localhost', 'root', 'root', 'learnphp_loginapp');
 
     //if will check if the connection is true and display a message in the browser if the connection is established.
-    if($connection) { echo "We are connected"; } 
-    else { die("Database connection failed."); }
+    // if($connection) { echo "We are connected"; } 
+    // else { die("Database connection failed."); }
 
     //create a query variable that has a SQL statement as a value that will insert a username and password into the users table in the learnPHP_loginapp database.
-    $query = "INSERT INTO users(username, password)";
+    $query = "INSERT INTO users(username,password) ";
     //ln 17 will append to the $query variable to designate the variables $username and $password to be set as the values for username and password in the table users.
     $query .= "VALUES ('$username', '$password')";
 
@@ -39,7 +41,7 @@
   <!-- Basic HTML form with Bootstrap styling -->
   <div class="container">
       <div class="col-xs-6">
-        <form action="login.php" method="POST">
+        <form action="login_create.php" method="POST">
           <div class="form-group">
             <label for="username">Username</label>
             <input type="text" name="username" class="form-control">

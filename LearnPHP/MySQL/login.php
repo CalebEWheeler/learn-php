@@ -1,21 +1,21 @@
-<?php 
+<?php include "db.php";
   if(isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    //Original connection method lines 8-14, commented out in lieu of including "db.php" to import the connection method and showing refactoring process.
+
     //mysqli_connect is PHP's method to connect to the MySQL database in the stacks
     //mysqli_connect will take in four parameters('SERVER', 'USERNAME', 'PASSWORD', 'DATABASE_NAME');
-    $connection = mysqli_connect('localhost', 'root', 'root', 'learnphp_loginapp');
+    // $connection = mysqli_connect('localhost', 'root', 'root', 'learnphp_loginapp');
 
     //if will check if the connection is true and display a message in the browser if the connection is established.
-    if($connection) { echo "We are connected"; } 
-    else { die("Database connection failed."); }
+    // if($connection) { echo "We are connected"; } 
+    // else { die("Database connection failed."); }
 
     //if a username && password are entered into the input fields the values will be displayed in the browser.
     if($username && $password) {
-      echo $username;
-      echo "<br>";
-      echo $password;
+      echo "<br>Thanks for registering! To get started login with your username and password.";
     }
     else { echo "You must enter a username and password!"; }
   }

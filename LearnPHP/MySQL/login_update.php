@@ -1,15 +1,32 @@
-<?php include "db.php";
+<?php include "db.php"; ?>
+<?php include "db_functions.php"; ?>
+
+<?php 
+    //THE FOLLOWING IS DEPRECATED NOW THAT I AM IMPORTING db_functions.php AND DEFINING WHAT TO QUERY AND BUILD.
 
     //create a query variable that has a SQL statement that will return all of the users stored in the users table in the learnPHP_loginapp database.
-    $query = "SELECT * FROM users";
+    // $query = "SELECT * FROM users";
 
     //define a $result variable that will assing the value to be PHP's method to make a query to the MySQL database. In order to define which database and what to query the method has to take in two parameters, the $connection to the database and a $query to do something to the database.
-    $result = mysqli_query($connection, $query);
+    // $result = mysqli_query($connection, $query);
 
     //if not true I want everything to stop with the die() method.
-      if(!$result) { die('Query FAILED'.mysqli_error()); }
-    
-?>
+      // if(!$result) { die('Query FAILED'.mysqli_error()); }
+
+    if(isset($_POST['submit'])) {
+      $username = $_POST['username'];
+      $password = $_POST['password'];
+      $id = $_POST['id'];
+
+      $query = "UPDATE users SET ";
+      $query .= "username = '$username', ";
+      $query .= "password = '$password' ";
+      $query .= "WHERE id = $id";
+
+        $result = mysqli_query($connection, $query);
+        if(!$result) { die('Query FAILED '.mysqli_error($connection)); }
+    }  
+?>   
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +43,7 @@
   <div class="container">
       <div class="col-sm-6">
         
-      <form action="login.php" method="POST">
+      <form action="login_update.php" method="POST">
           <div class="form-group">
             <label for="username">Username</label>
             <input type="text" name="username" class="form-control">
@@ -36,8 +53,12 @@
             <input type="password" name="password" class="form-control">
           </div>
           <div class="form-group">
-            <select name="" id="">
-              <option value="">1</option>
+            <select name="id" id="">
+              
+              <?php 
+                buildSelectMenu();
+              ?>
+
             </select>
           </div>
           <div class="form-group">

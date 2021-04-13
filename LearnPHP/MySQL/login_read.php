@@ -1,5 +1,6 @@
-<?php include "db.php";
-
+<?php include "db.php"; ?>
+<?php include "db_functions.php"; ?>
+<?php 
     //Original connection method lines 5-11, commented out in lieu of including "db.php" to import the connection method and showing refactoring process.    
 
     //mysqli_connect is PHP's method to connect to the MySQL database in the stacks
@@ -18,7 +19,6 @@
 
     //if not true I want everything to stop with the die() method.
       if(!$result) { die('Query FAILED'.mysqli_error()); }
-    
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +34,7 @@
 <body>
   <!-- Basic HTML form with Bootstrap styling -->
   <div class="container">
+    <h1 class="text-center">Read</h1>
       <div class="col-xs-6">
         
         <?php 

@@ -1,6 +1,6 @@
 <?php include "db.php"; ?>
 <?php include "db_functions.php"; ?>
-
+<?php deleteUser(); ?>
 <?php 
     //THE FOLLOWING IS DEPRECATED NOW THAT I AM IMPORTING db_functions.php AND DEFINING WHAT TO QUERY AND BUILD.
 
@@ -29,9 +29,9 @@
     //     if(!$result) { die('Query FAILED '.mysqli_error($connection)); }
     // }  
 
-    if(isset($_POST['submit'])) {
-      deleteUser();
-    }  
+    // if(isset($_POST['submit'])) {
+    //   deleteUser();
+    // }  
 ?>   
 
 <!DOCTYPE html>
@@ -48,7 +48,7 @@
   <!-- Basic HTML form with Bootstrap styling -->
   <div class="container">
       <div class="col-sm-6">
-        
+      <h1 class="text-center">Delete</h1>  
       <form action="login_delete.php" method="POST">
           <div class="form-group">
             <label for="username">Username</label>

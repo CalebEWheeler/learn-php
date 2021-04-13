@@ -1,6 +1,6 @@
 <?php include "db.php"; ?>
 <?php include "db_functions.php"; ?>
-
+<?php updateUser(); ?>
 <?php 
     //THE FOLLOWING IS DEPRECATED NOW THAT I AM IMPORTING db_functions.php AND DEFINING WHAT TO QUERY AND BUILD.
 
@@ -29,9 +29,9 @@
     //     if(!$result) { die('Query FAILED '.mysqli_error($connection)); }
     // }  
 
-    if(isset($_POST['submit'])) {
-      updateUser();
-    }  
+    // if(isset($_POST['submit'])) {
+    //   updateUser();
+    // }  
 ?>   
 
 <!DOCTYPE html>
@@ -48,7 +48,7 @@
   <!-- Basic HTML form with Bootstrap styling -->
   <div class="container">
       <div class="col-sm-6">
-        
+      <h1 class="text-center">Update</h1>  
       <form action="login_update.php" method="POST">
           <div class="form-group">
             <label for="username">Username</label>

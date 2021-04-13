@@ -1,7 +1,10 @@
-<?php include "db.php";
-  if(isset($_POST['submit'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+<?php include "db.php"; ?>
+<?php include "db_functions.php"; ?>
+<?php createUser(); ?>
+<?php 
+  // if(isset($_POST['submit'])) {
+    // $username = $_POST['username'];
+    // $password = $_POST['password'];
 
     //Original connection method lines 8-14, commented out in lieu of including "db.php" to import the connection method and showing refactoring process.
 
@@ -14,17 +17,16 @@
     // else { die("Database connection failed."); }
 
     //create a query variable that has a SQL statement as a value that will insert a username and password into the users table in the learnPHP_loginapp database.
-    $query = "INSERT INTO users(username,password) ";
+    // $query = "INSERT INTO users(username,password) ";
     //ln 17 will append to the $query variable to designate the variables $username and $password to be set as the values for username and password in the table users.
-    $query .= "VALUES ('$username', '$password')";
+    // $query .= "VALUES ('$username', '$password')";
 
     //define a $result variable that will assing the value to be PHP's method to make a query to the MySQL database. In order to define which database and what to query the method has to take in two parameters, the $connection to the database and a $query to do something to the database.
-    $result = mysqli_query($connection, $query);
+    // $result = mysqli_query($connection, $query);
 
     //if not true I want everything to stop with the die() method.
-      if(!$result) { die('Query FAILED'.mysqli_error()); }
-    
-  }
+      // if(!$result) { die('Query FAILED'.mysqli_error()); }
+  // }
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +43,7 @@
   <!-- Basic HTML form with Bootstrap styling -->
   <div class="container">
       <div class="col-xs-6">
+      <h1 class="text-center">Create</h1>
         <form action="login_create.php" method="POST">
           <div class="form-group">
             <label for="username">Username</label>

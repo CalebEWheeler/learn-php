@@ -13,18 +13,24 @@
     //if not true I want everything to stop with the die() method.
       // if(!$result) { die('Query FAILED'.mysqli_error()); }
 
+    // DEPRECATED METHOD TO UPDATE A USER, NOW REFACTORED TO A FUNCTION IN db_functions.php
+
+    // if(isset($_POST['submit'])) {
+    //   $username = $_POST['username'];
+    //   $password = $_POST['password'];
+    //   $id = $_POST['id'];
+
+    //   $query = "UPDATE users SET ";
+    //   $query .= "username = '$username', ";
+    //   $query .= "password = '$password' ";
+    //   $query .= "WHERE id = $id";
+
+    //     $result = mysqli_query($connection, $query);
+    //     if(!$result) { die('Query FAILED '.mysqli_error($connection)); }
+    // }  
+
     if(isset($_POST['submit'])) {
-      $username = $_POST['username'];
-      $password = $_POST['password'];
-      $id = $_POST['id'];
-
-      $query = "UPDATE users SET ";
-      $query .= "username = '$username', ";
-      $query .= "password = '$password' ";
-      $query .= "WHERE id = $id";
-
-        $result = mysqli_query($connection, $query);
-        if(!$result) { die('Query FAILED '.mysqli_error($connection)); }
+      updateUser();
     }  
 ?>   
 

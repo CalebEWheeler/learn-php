@@ -28,4 +28,15 @@
     if(!$result) { die('Query FAILED '.mysqli_error($connection)); } 
   }
 
+  function deleteUser() {
+    global $connection;
+    $id = $_POST['id'];
+
+    $query = "DELETE from users ";
+    $query .= "WHERE id = $id";
+
+    $result = mysqli_query($connection, $query);
+    if(!$result) { die('Query FAILED '.mysqli_error($connection)); } 
+  }
+
 ?>

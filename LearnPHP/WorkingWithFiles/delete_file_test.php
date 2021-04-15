@@ -1,0 +1,1 @@
+Hi, I am the file that is going to be deleted if you follow the instructions properly!

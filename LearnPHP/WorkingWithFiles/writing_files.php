@@ -10,7 +10,4 @@
     echo "The application was not able to write on the file...";
   }
   
-  
-
-
 ?>
